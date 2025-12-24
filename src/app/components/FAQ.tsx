@@ -58,7 +58,7 @@ function FAQItem({ question, answer, index, isInView }: FAQItemProps) {
 
   return (
     <motion.div
-      className="border-b border-gray-200 last:border-b-0"
+      className="border-b border-gray-700 last:border-b-0"
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -67,7 +67,7 @@ function FAQItem({ question, answer, index, isInView }: FAQItemProps) {
         className="w-full py-6 text-left flex items-center justify-between gap-4 hover:text-[#d4af37] transition-colors"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h3 className="text-lg font-semibold text-[#0a1628] pr-8">{question}</h3>
+        <h3 className="text-lg font-semibold text-white pr-8">{question}</h3>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
@@ -85,7 +85,7 @@ function FAQItem({ question, answer, index, isInView }: FAQItemProps) {
         transition={{ duration: 0.3 }}
         className="overflow-hidden"
       >
-        <p className="pb-6 text-gray-700 leading-relaxed">{answer}</p>
+        <p className="pb-6 text-white leading-relaxed">{answer}</p>
       </motion.div>
     </motion.div>
   );
@@ -96,7 +96,7 @@ export function FAQ() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="faq" className="py-20 bg-white">
+    <section id="faq" className="py-20 bg-[#0a1628]">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -116,7 +116,7 @@ export function FAQ() {
             FAQ
           </motion.span>
           <motion.h2
-            className="text-4xl md:text-5xl text-[#0a1628] mt-2 mb-4"
+            className="text-4xl md:text-5xl text-white mt-2 mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -132,7 +132,7 @@ export function FAQ() {
             transition={{ duration: 0.6, delay: 0.2 }}
           />
           <motion.p
-            className="text-gray-700 max-w-2xl mx-auto"
+            className="text-white max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -145,7 +145,7 @@ export function FAQ() {
 
         {/* FAQ Items */}
         <div ref={ref} className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg p-8">
+          <div className="bg-[#1a2942] rounded-lg shadow-lg p-8">
             {faqs.map((faq, index) => (
               <FAQItem
                 key={index}

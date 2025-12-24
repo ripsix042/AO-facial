@@ -71,7 +71,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-[#1a2942]">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -91,7 +91,7 @@ export function Contact() {
             Contact Us
           </motion.span>
           <motion.h2
-            className="text-4xl md:text-5xl text-[#0a1628] mt-2 mb-4"
+            className="text-4xl md:text-5xl text-white mt-2 mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -107,7 +107,7 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
           />
           <motion.p
-            className="text-gray-700 max-w-2xl mx-auto"
+            className="text-white max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -276,7 +276,7 @@ export function Contact() {
           >
             <div>
               <motion.h3
-                className="text-2xl text-[#0a1628] mb-6"
+                className="text-2xl text-white mb-6"
                 initial={{ opacity: 0, y: -20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -318,9 +318,9 @@ export function Contact() {
                       <info.icon className="w-6 h-6 text-[#d4af37]" />
                     </motion.div>
                     <div>
-                      <h4 className="text-[#0a1628] mb-1">{info.title}</h4>
+                      <h4 className="text-white mb-1">{info.title}</h4>
                       {info.title === 'Location' || info.title === 'Office Hours' ? (
-                        <div className="text-gray-600 text-sm space-y-1">
+                        <div className="text-white text-sm space-y-1">
                           {info.title === 'Location' ? (
                             <>
                               <p>{info.main}</p>
@@ -337,9 +337,9 @@ export function Contact() {
                         </div>
                       ) : (
                         <>
-                          <p className="text-gray-600">{info.main}</p>
+                          <p className="text-white">{info.main}</p>
                           {info.sub && (
-                            <p className="text-sm text-gray-500 mt-1">{info.sub}</p>
+                            <p className="text-sm text-gray-300 mt-1">{info.sub}</p>
                           )}
                         </>
                       )}
@@ -357,13 +357,13 @@ export function Contact() {
               transition={{ duration: 0.5, delay: 0.6 }}
               whileHover={{ scale: 1.02, boxShadow: '0 8px 20px rgba(212, 175, 55, 0.2)' }}
             >
-              <h4 className="text-xl text-[#0a1628] mb-3">Free Consultation Offer</h4>
-              <p className="text-gray-700 mb-4">
+              <h4 className="text-xl text-white mb-3">Free Consultation Offer</h4>
+              <p className="text-white mb-4">
                 Schedule your complimentary consultation today and take the first step towards
                 achieving your aesthetic goals. Virtual and in-person options available.
               </p>
               <motion.ul
-                className="space-y-2 text-sm text-gray-600"
+                className="space-y-2 text-sm text-white"
                 variants={{
                   hidden: { opacity: 0 },
                   visible: {

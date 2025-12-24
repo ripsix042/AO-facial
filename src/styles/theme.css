@@ -132,6 +132,11 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "GFS Didot", serif;
+  }
+
+  html {
+    font-family: "GFS Didot", serif;
   }
 
   /**

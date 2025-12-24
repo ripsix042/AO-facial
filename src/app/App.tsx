@@ -13,6 +13,7 @@ import { TermsOfService } from './components/TermsOfService';
 import { LoadingScreen } from './components/LoadingScreen';
 import { BackToTop } from './components/BackToTop';
 import { FAQ } from './components/FAQ';
+import { Testimonials } from './components/Testimonials';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -60,6 +61,7 @@ export default function App() {
         <About />
         <Services />
         {/* <Gallery /> */}
+        <Testimonials />
         <FAQ />
         <Foundation />
         <Contact />

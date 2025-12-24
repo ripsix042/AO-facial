@@ -24,7 +24,7 @@ export function Footer() {
   ];
 
   return (
-    <footer ref={ref} className="bg-[#0a1628] text-white pt-16 pb-8">
+    <footer ref={ref} className="bg-black text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12"
@@ -60,7 +60,7 @@ export function Footer() {
               </motion.div>
               <h3 className="text-lg">AO Facial Plastics</h3>
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-white text-sm leading-relaxed">
               Excellence, precision, and safety in facial plastic and reconstructive surgery.
               Committed to enhancing natural beauty and transforming lives.
             </p>
@@ -112,7 +112,7 @@ export function Footer() {
                 >
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-gray-400 hover:text-[#d4af37] transition-colors"
+                    className="text-white hover:text-[#d4af37] transition-colors"
                   >
                     {link.label}
                   </button>
@@ -133,7 +133,7 @@ export function Footer() {
             }}
           >
             <h4 className="text-lg mb-4 text-[#d4af37]">Our Services</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
+            <ul className="space-y-2 text-sm text-white">
               {services.map((service, index) => (
                 <motion.li
                   key={index}
@@ -181,12 +181,12 @@ export function Footer() {
                   <div>
                     {Array.isArray(contact.text) ? (
                       contact.text.map((line, i) => (
-                        <p key={i} className="text-gray-400">
+                        <p key={i} className="text-white">
                           {line}
                         </p>
                       ))
                     ) : (
-                      <p className="text-gray-400">{contact.text}</p>
+                      <p className="text-white">{contact.text}</p>
                     )}
                   </div>
                 </motion.li>
@@ -197,18 +197,18 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <motion.div
-          className="border-t border-gray-800 pt-8"
+          className="border-t border-gray-700 pt-8"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-white">
               © {new Date().getFullYear()} AO Facial Plastics and Reconstructive Surgery, PLLC.
               All rights reserved.
             </p>
             <motion.div
-              className="flex gap-6 text-sm text-gray-400"
+              className="flex gap-6 text-sm text-white"
               variants={{
                 hidden: { opacity: 0 },
                 visible: {

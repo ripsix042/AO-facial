@@ -11,7 +11,7 @@ export function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       // Determine which section is currently in view
-      const sections = ['home', 'about', 'services', 'faq', 'foundation', 'contact'];
+      const sections = ['home', 'about', 'services', 'reviews', 'faq', 'foundation', 'contact'];
       const sectionElements = sections.map(id => document.getElementById(id));
       
       const scrollPosition = window.scrollY + 100; // Offset for navigation height
@@ -60,6 +60,7 @@ export function Navigation() {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'services', label: 'Services' },
+    { id: 'reviews', label: 'Reviews' },
     { id: 'faq', label: 'FAQ' },
     { id: 'foundation', label: 'Foundation' },
   ];
@@ -144,7 +145,7 @@ export function Navigation() {
                       }
                     }}
                     className={`relative transition-colors px-3 py-1 ${
-                      currentSection === 'about' || currentSection === 'contact' || currentSection === 'faq'
+                      currentSection === 'about' || currentSection === 'contact' || currentSection === 'faq' || currentSection === 'reviews'
                         ? isActive
                           ? 'text-[#d4af37] font-semibold'
                           : 'text-[#0a1628] hover:text-[#d4af37]'
@@ -188,7 +189,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <motion.button
             className={`md:hidden transition-colors ${
-              currentSection === 'about' || currentSection === 'contact' || currentSection === 'faq'
+              currentSection === 'about' || currentSection === 'contact' || currentSection === 'faq' || currentSection === 'reviews'
                 ? 'text-[#0a1628]'
                 : 'text-white'
             }`}
@@ -228,7 +229,7 @@ export function Navigation() {
                   key={item.id}
                   onClick={item.onClick}
                   className={`relative transition-colors text-left px-3 py-1 ${
-                    currentSection === 'about' || currentSection === 'contact' || currentSection === 'faq'
+                    currentSection === 'about' || currentSection === 'contact' || currentSection === 'faq' || currentSection === 'reviews'
                       ? currentSection === item.id
                         ? 'text-[#d4af37] font-semibold'
                         : 'text-[#0a1628] hover:text-[#d4af37]'

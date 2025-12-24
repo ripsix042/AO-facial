@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import drObayemiImage from '../../assets/817b094a773c43859edfea328c9666bff094136d.png';
+import vidSrc from '../../assets/vid.mp4';
 import { Award, GraduationCap, Heart, Globe } from 'lucide-react';
 
 export function About() {
@@ -32,7 +33,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-black">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -52,13 +53,13 @@ export function About() {
             About
           </motion.span>
           <motion.h2
-            className="text-4xl md:text-5xl text-[#0a1628] mt-2 mb-4"
+            className="text-4xl md:text-5xl text-white mt-2 mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Meet Dr. Ade Obayemi Jr
+            Meet Ade Obsyemi Jr MD MBA
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-[#d4af37] mx-auto"
@@ -111,7 +112,7 @@ export function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.h3
-              className="text-3xl text-[#0a1628] mb-6"
+              className="text-3xl text-white mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -119,7 +120,7 @@ export function About() {
               Precision. Artistry. Excellence.
             </motion.h3>
             <motion.p
-              className="text-gray-700 mb-6 leading-relaxed"
+              className="text-white mb-6 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -130,7 +131,7 @@ export function About() {
               vision to deliver exceptional, natural-looking results.
             </motion.p>
             <motion.p
-              className="text-gray-700 mb-6 leading-relaxed"
+              className="text-white mb-6 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
@@ -178,11 +179,29 @@ export function About() {
                     <highlight.icon className="w-6 h-6 text-[#d4af37]" />
                   </motion.div>
                   <div>
-                    <h4 className="text-[#0a1628] mb-1">{highlight.title}</h4>
-                    <p className="text-sm text-gray-600">{highlight.description}</p>
+                    <h4 className="text-white mb-1">{highlight.title}</h4>
+                    <p className="text-sm text-gray-300">{highlight.description}</p>
                   </div>
                 </motion.div>
               ))}
+            </motion.div>
+
+            {/* Video Section */}
+            <motion.div
+              className="mt-12 rounded-lg overflow-hidden shadow-2xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <video
+                src={vidSrc}
+                className="w-full h-[600px] object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+              />
             </motion.div>
           </motion.div>
         </div>

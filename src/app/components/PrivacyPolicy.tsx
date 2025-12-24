@@ -5,19 +5,19 @@ export function PrivacyPolicy() {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <main className="pt-20 pb-16 bg-white">
+      <main className="pt-20 pb-16 bg-[#1a2942]">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl text-[#0a1628] mb-4">Privacy Policy</h1>
+            <h1 className="text-4xl md:text-5xl text-white mb-4">Privacy Policy</h1>
             <div className="w-24 h-1 bg-[#d4af37] mb-6"></div>
-            <p className="text-gray-600 text-sm">
+            <p className="text-white text-sm">
               Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
           </div>
 
-          <div className="prose prose-lg max-w-none space-y-8 text-gray-700">
+          <div className="prose prose-lg max-w-none space-y-8 text-white">
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Introduction</h2>
+              <h2 className="text-2xl text-white mb-4">Introduction</h2>
               <p className="mb-4 leading-relaxed">
                 AO Facial Plastics and Reconstructive Surgery, PLLC ("we," "our," or "us") is committed to protecting
                 your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information
@@ -26,7 +26,7 @@ export function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Information We Collect</h2>
+              <h2 className="text-2xl text-white mb-4">Information We Collect</h2>
               <p className="mb-4 leading-relaxed">
                 We may collect information about you in various ways. The information we may collect includes:
               </p>
@@ -47,7 +47,7 @@ export function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">How We Use Your Information</h2>
+              <h2 className="text-2xl text-white mb-4">How We Use Your Information</h2>
               <p className="mb-4 leading-relaxed">We use the information we collect to:</p>
               <ul className="list-disc pl-6 space-y-2 mb-4">
                 <li>Schedule and manage consultations and appointments</li>
@@ -60,7 +60,7 @@ export function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Information Sharing and Disclosure</h2>
+              <h2 className="text-2xl text-white mb-4">Information Sharing and Disclosure</h2>
               <p className="mb-4 leading-relaxed">
                 We do not sell, trade, or rent your personal information to third parties. We may share your information
                 only in the following circumstances:
@@ -75,7 +75,7 @@ export function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">HIPAA Compliance</h2>
+              <h2 className="text-2xl text-white mb-4">HIPAA Compliance</h2>
               <p className="mb-4 leading-relaxed">
                 As a healthcare provider, we are subject to the Health Insurance Portability and Accountability Act
                 (HIPAA). Your protected health information (PHI) is handled in accordance with HIPAA regulations. Please
@@ -84,7 +84,7 @@ export function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Data Security</h2>
+              <h2 className="text-2xl text-white mb-4">Data Security</h2>
               <p className="mb-4 leading-relaxed">
                 We implement appropriate technical and organizational measures to protect your personal information
                 against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission
@@ -93,7 +93,7 @@ export function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Your Rights</h2>
+              <h2 className="text-2xl text-white mb-4">Your Rights</h2>
               <p className="mb-4 leading-relaxed">You have the right to:</p>
               <ul className="list-disc pl-6 space-y-2 mb-4">
                 <li>Access and receive a copy of your personal information</li>
@@ -105,7 +105,7 @@ export function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Cookies and Tracking Technologies</h2>
+              <h2 className="text-2xl text-white mb-4">Cookies and Tracking Technologies</h2>
               <p className="mb-4 leading-relaxed">
                 Our website may use cookies and similar tracking technologies to enhance your experience. You can set
                 your browser to refuse cookies or alert you when cookies are being sent.
@@ -113,7 +113,7 @@ export function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Third-Party Links</h2>
+              <h2 className="text-2xl text-white mb-4">Third-Party Links</h2>
               <p className="mb-4 leading-relaxed">
                 Our website may contain links to third-party websites. We are not responsible for the privacy practices
                 of these external sites. We encourage you to review the privacy policies of any third-party sites you
@@ -122,7 +122,7 @@ export function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Children's Privacy</h2>
+              <h2 className="text-2xl text-white mb-4">Children's Privacy</h2>
               <p className="mb-4 leading-relaxed">
                 Our services are not directed to individuals under the age of 18. We do not knowingly collect personal
                 information from children. If you believe we have collected information from a child, please contact us
@@ -131,7 +131,7 @@ export function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Changes to This Privacy Policy</h2>
+              <h2 className="text-2xl text-white mb-4">Changes to This Privacy Policy</h2>
               <p className="mb-4 leading-relaxed">
                 We may update this Privacy Policy from time to time. We will notify you of any material changes by
                 posting the new policy on this page and updating the "Last updated" date. We encourage you to review
@@ -140,11 +140,11 @@ export function PrivacyPolicy() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Contact Us</h2>
+              <h2 className="text-2xl text-white mb-4">Contact Us</h2>
               <p className="mb-4 leading-relaxed">
                 If you have questions or concerns about this Privacy Policy or our privacy practices, please contact us:
               </p>
-              <div className="bg-[#0a1628]/5 p-6 rounded-lg">
+              <div className="bg-black/20 p-6 rounded-lg">
                 <p className="mb-2">
                   <strong>AO Facial Plastics and Reconstructive Surgery, PLLC</strong>
                 </p>

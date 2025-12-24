@@ -81,7 +81,7 @@ export function Foundation() {
   const countValues = [patientsCount, traineesCount, countriesCount, scholarshipsCount];
 
   return (
-    <section id="foundation" className="py-20 bg-[#1a2942]">
+    <section id="foundation" className="py-20 bg-black">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -117,7 +117,7 @@ export function Foundation() {
             transition={{ duration: 0.6, delay: 0.2 }}
           />
           <motion.p
-            className="text-gray-300 max-w-2xl mx-auto"
+            className="text-white max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -144,7 +144,7 @@ export function Foundation() {
               Our Foundation Mission
             </motion.h3>
             <motion.p
-              className="text-gray-300 mb-6 leading-relaxed"
+              className="text-white mb-6 leading-relaxed"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -193,7 +193,7 @@ export function Foundation() {
                   </motion.div>
                   <div>
                     <h4 className="text-white mb-1">{program.title}</h4>
-                    <p className="text-gray-300 text-sm">{program.description}</p>
+                    <p className="text-white text-sm">{program.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -218,7 +218,7 @@ export function Foundation() {
           {/* Statistics/Impact */}
           <motion.div
             ref={statsRef}
-            className="bg-[#0a1628] p-8 rounded-lg"
+            className="bg-gray-900 p-8 rounded-lg"
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -270,7 +270,7 @@ export function Foundation() {
                   >
                     {countValues[index]}{stat.suffix}
                   </motion.div>
-                  <p className="text-gray-300">{stat.label}</p>
+                  <p className="text-white">{stat.label}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -281,7 +281,7 @@ export function Foundation() {
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.9 }}
             >
-              <p className="text-gray-300 text-center text-sm italic">
+              <p className="text-white text-center text-sm italic">
                 "Together, we're building a more inclusive and accessible future for facial
                 plastic surgery."
               </p>

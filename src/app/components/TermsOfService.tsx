@@ -5,19 +5,19 @@ export function TermsOfService() {
   return (
     <div className="min-h-screen">
       <Navigation />
-      <main className="pt-20 pb-16 bg-white">
+      <main className="pt-20 pb-16 bg-[#1a2942]">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="mb-12">
-            <h1 className="text-4xl md:text-5xl text-[#0a1628] mb-4">Terms of Service</h1>
+            <h1 className="text-4xl md:text-5xl text-white mb-4">Terms of Service</h1>
             <div className="w-24 h-1 bg-[#d4af37] mb-6"></div>
-            <p className="text-gray-600 text-sm">
+            <p className="text-white text-sm">
               Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </p>
           </div>
 
-          <div className="prose prose-lg max-w-none space-y-8 text-gray-700">
+          <div className="prose prose-lg max-w-none space-y-8 text-white">
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Agreement to Terms</h2>
+              <h2 className="text-2xl text-white mb-4">Agreement to Terms</h2>
               <p className="mb-4 leading-relaxed">
                 By accessing and using the website of AO Facial Plastics and Reconstructive Surgery, PLLC ("we," "our,"
                 or "us"), you accept and agree to be bound by the terms and provision of this agreement. If you do not
@@ -26,7 +26,7 @@ export function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Use License</h2>
+              <h2 className="text-2xl text-white mb-4">Use License</h2>
               <p className="mb-4 leading-relaxed">
                 Permission is granted to temporarily download one copy of the materials on our website for personal,
                 non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and
@@ -42,7 +42,7 @@ export function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Medical Disclaimer</h2>
+              <h2 className="text-2xl text-white mb-4">Medical Disclaimer</h2>
               <p className="mb-4 leading-relaxed">
                 The content on this website, including text, graphics, images, and other material, is for informational
                 purposes only and is not intended to be a substitute for professional medical advice, diagnosis, or
@@ -57,7 +57,7 @@ export function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Consultation and Services</h2>
+              <h2 className="text-2xl text-white mb-4">Consultation and Services</h2>
               <p className="mb-4 leading-relaxed">
                 Our website provides information about our services and allows you to request consultations. However:
               </p>
@@ -70,7 +70,7 @@ export function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">User Accounts and Information</h2>
+              <h2 className="text-2xl text-white mb-4">User Accounts and Information</h2>
               <p className="mb-4 leading-relaxed">
                 When you provide information through our website, you agree to:
               </p>
@@ -83,7 +83,7 @@ export function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Intellectual Property</h2>
+              <h2 className="text-2xl text-white mb-4">Intellectual Property</h2>
               <p className="mb-4 leading-relaxed">
                 All content on this website, including but not limited to text, graphics, logos, images, audio clips,
                 digital downloads, and software, is the property of AO Facial Plastics and Reconstructive Surgery, PLLC
@@ -92,7 +92,7 @@ export function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Prohibited Uses</h2>
+              <h2 className="text-2xl text-white mb-4">Prohibited Uses</h2>
               <p className="mb-4 leading-relaxed">You may not use our website:</p>
               <ul className="list-disc pl-6 space-y-2 mb-4">
                 <li>In any way that violates any applicable federal, state, local, or international law or regulation</li>
@@ -104,7 +104,7 @@ export function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Limitation of Liability</h2>
+              <h2 className="text-2xl text-white mb-4">Limitation of Liability</h2>
               <p className="mb-4 leading-relaxed">
                 In no event shall AO Facial Plastics and Reconstructive Surgery, PLLC, its directors, officers, employees,
                 or agents be liable for any indirect, incidental, special, consequential, or punitive damages, including
@@ -114,7 +114,7 @@ export function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Indemnification</h2>
+              <h2 className="text-2xl text-white mb-4">Indemnification</h2>
               <p className="mb-4 leading-relaxed">
                 You agree to defend, indemnify, and hold harmless AO Facial Plastics and Reconstructive Surgery, PLLC
                 and its officers, directors, employees, and agents from and against any claims, liabilities, damages,
@@ -124,7 +124,7 @@ export function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Governing Law</h2>
+              <h2 className="text-2xl text-white mb-4">Governing Law</h2>
               <p className="mb-4 leading-relaxed">
                 These Terms of Service shall be governed by and construed in accordance with the laws of the State in
                 which our practice is located, without regard to its conflict of law provisions. Any disputes arising
@@ -134,7 +134,7 @@ export function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Changes to Terms</h2>
+              <h2 className="text-2xl text-white mb-4">Changes to Terms</h2>
               <p className="mb-4 leading-relaxed">
                 We reserve the right, at our sole discretion, to modify or replace these Terms of Service at any time.
                 If a revision is material, we will try to provide at least 30 days' notice prior to any new terms taking
@@ -143,7 +143,7 @@ export function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Severability</h2>
+              <h2 className="text-2xl text-white mb-4">Severability</h2>
               <p className="mb-4 leading-relaxed">
                 If any provision of these Terms of Service is held to be invalid or unenforceable by a court, the
                 remaining provisions of these Terms of Service will remain in effect.
@@ -151,11 +151,11 @@ export function TermsOfService() {
             </section>
 
             <section>
-              <h2 className="text-2xl text-[#0a1628] mb-4">Contact Information</h2>
+              <h2 className="text-2xl text-white mb-4">Contact Information</h2>
               <p className="mb-4 leading-relaxed">
                 If you have any questions about these Terms of Service, please contact us:
               </p>
-              <div className="bg-[#0a1628]/5 p-6 rounded-lg">
+              <div className="bg-black/20 p-6 rounded-lg">
                 <p className="mb-2">
                   <strong>AO Facial Plastics and Reconstructive Surgery, PLLC</strong>
                 </p>
