@@ -204,14 +204,6 @@ export function Foundation() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <Button className="bg-[#d4af37] text-[#0a1628] hover:bg-[#D3AF37]" asChild>
-                <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: '0 8px 20px rgba(212, 175, 55, 0.4)' }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Learn More About Our Foundation
-                </motion.button>
-              </Button>
             </motion.div>
           </motion.div>
 
