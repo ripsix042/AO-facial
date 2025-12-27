@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import drObayemiImage from '../../assets/817b094a773c43859edfea328c9666bff094136d.png';
 import vidSrc from '../../assets/vid.mp4';
 import { Award, GraduationCap, Heart, Globe } from 'lucide-react';
@@ -8,6 +8,52 @@ import { Award, GraduationCap, Heart, Globe } from 'lucide-react';
 export function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoContainerRef = useRef<HTMLDivElement>(null);
+
+  // Handle video play/pause based on scroll position
+  useEffect(() => {
+    const video = videoRef.current;
+    const container = videoContainerRef.current;
+    
+    if (!video || !container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Try to play the video
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise
+                .then(() => {
+                  // Video started playing, try to unmute
+                  video.muted = false;
+                })
+                .catch(() => {
+                  // If play fails (due to autoplay policy), try muted play
+                  video.muted = true;
+                  video.play().catch((err) => {
+                    console.log('Video play failed:', err);
+                  });
+                });
+            }
+          } else {
+            video.pause();
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Play when 50% of video is visible
+      }
+    );
+
+    observer.observe(container);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const highlights = [
     {
@@ -59,7 +105,7 @@ export function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Meet Ade Obsyemi Jr MD MBA
+            Meet Ade Obayemi Jr MD MBA
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-[#d4af37] mx-auto"
@@ -73,7 +119,7 @@ export function About() {
         <div ref={ref} className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}
           <motion.div
-            className="relative"
+            className="relative -mt-129"
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -88,7 +134,7 @@ export function About() {
                 alt="Dr. Ade Obayemi Jr"
                 className="w-full h-[600px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent"></div>
+              <div className="absolute -top-[5px] -left-1 right-0 bottom-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent"></div>
             </motion.div>
             {/* Credentials Badge */}
             <motion.div
@@ -188,19 +234,20 @@ export function About() {
 
             {/* Video Section */}
             <motion.div
+              ref={videoContainerRef}
               className="mt-12 rounded-lg overflow-hidden shadow-2xl"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
               <video
+                ref={videoRef}
                 src={vidSrc}
                 className="w-full h-[600px] object-cover"
-                autoPlay
                 loop
-                muted
                 playsInline
                 controls
+                muted
               />
             </motion.div>
           </motion.div>

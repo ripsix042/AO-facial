@@ -104,7 +104,7 @@ export function Navigation() {
         <div className="flex items-center justify-between">
           <motion.button
             onClick={navigateToHome}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 -ml-20"
             whileHover="hover"
             variants={logoVariants}
           >
@@ -116,7 +116,7 @@ export function Navigation() {
               <img 
                 src={logo} 
                 alt="AO Facial Plastics" 
-                className="h-20 w-auto"
+                className="h-16 w-auto"
               />
             </motion.div>
           </motion.button>

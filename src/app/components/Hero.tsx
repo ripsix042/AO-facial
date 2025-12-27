@@ -62,7 +62,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div className="mb-6" variants={itemVariants}>
+          <motion.div className="mb-6, mt-20" variants={itemVariants}>
             <motion.span
               className="text-[#d4af37] text-[20px] tracking-wider uppercase inline-block"
               initial={{ opacity: 0, x: -50 }}
@@ -73,7 +73,7 @@ export function Hero() {
             </motion.span>
           </motion.div>
           <motion.h1
-            className="text-[120px] md:text-[120px] text-white mb-10 leading-tight"
+            className="text-[120px] md:text-[100px] text-white mb-10 leading-tight"
             variants={itemVariants}
           >
             The Facial
@@ -87,7 +87,7 @@ export function Hero() {
             </motion.span>
           </motion.h1>
           <motion.p
-            className="text-[30px] text-gray-300 mb-8 leading-relaxed"
+            className="text-[20px] text-gray-300 mb-8 leading-relaxed"
             variants={itemVariants}
           >
             Dual board-certified head and neck and facial plastic surgeon dedicated to
