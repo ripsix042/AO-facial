@@ -212,7 +212,7 @@ export function Hero() {
             </motion.span>
           </motion.div>
           <motion.h1
-            className="text-[76px] md:text-[200px] text-white mb-10 leading-tight text-center md:text-center"
+            className="text-[73px] md:text-[200px] text-white mb-10 leading-tight text-center md:text-center"
             variants={itemVariants}
           >
             <LetterAnimation delay={0.3}>The Facial</LetterAnimation>
