@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import { Menu, X } from 'lucide-react';
 import logo from '../../assets/logo.png';
 
 export function Navigation() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentSection, setCurrentSection] = useState('home');
 
   useEffect(() => {
@@ -47,13 +45,11 @@ export function Navigation() {
       element.scrollIntoView({ behavior: 'smooth' });
       }
     }
-    setIsMobileMenuOpen(false);
   };
 
   const navigateToHome = () => {
     window.location.hash = '';
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    setIsMobileMenuOpen(false);
   };
 
   const navItems = [
@@ -95,13 +91,14 @@ export function Navigation() {
 
   return (
     <motion.nav
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-transparent"
+      className="absolute top-0 left-0 right-0 z-50 bg-transparent"
     >
       <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+        <div className="hidden md:flex items-center justify-between">
+          {/* Desktop Logo */}
           <motion.button
             onClick={navigateToHome}
             className="flex items-center gap-2 -ml-20"
@@ -123,159 +120,70 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <motion.div
-            className="hidden md:flex items-center gap-8"
+            className="flex items-center gap-8"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            {navItems.map((item) => {
-              const isActive = currentSection === item.id;
-              return (
-                <motion.div key={item.id} className="relative" variants={itemVariants}>
-                  <motion.button
-                    onClick={() => {
-                      if (item.id === 'home') {
-                        if (window.location.hash) {
-                          navigateToHome();
-                        } else {
-                          scrollToSection('home');
-                        }
+          {navItems.map((item) => {
+            const isActive = currentSection === item.id;
+            return (
+              <motion.div key={item.id} className="relative" variants={itemVariants}>
+                <motion.button
+                  onClick={() => {
+                    if (item.id === 'home') {
+                      if (window.location.hash) {
+                        navigateToHome();
                       } else {
-                        scrollToSection(item.id);
+                        scrollToSection('home');
                       }
-                    }}
-                    className={`relative transition-colors px-3 py-1 ${
-                      currentSection === 'about' || currentSection === 'contact' || currentSection === 'faq' || currentSection === 'reviews'
-                        ? isActive
-                          ? 'text-[#d4af37] font-semibold'
-                          : 'text-[#0a1628] hover:text-[#d4af37]'
-                        : isActive
-                        ? 'text-[#d4af37] font-semibold'
-                        : 'text-white hover:text-[#d4af37]'
-                    }`}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {item.label}
-                    {isActive && (
-                      <motion.div
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#d4af37]"
-                        layoutId="activeIndicator"
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: 1 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    )}
-                  </motion.button>
-                </motion.div>
-              );
-            })}
-            <motion.div variants={itemVariants}>
-            <Button
-              onClick={() => scrollToSection('contact')}
-                className="bg-[#d4af37] text-[#0a1628] hover:bg-[#D3AF37]"
-                asChild
-              >
-                <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: '0 4px 12px rgba(212, 175, 55, 0.4)' }}
-                  whileTap={{ scale: 0.95 }}
-            >
-              Book Consultation
-                </motion.button>
-            </Button>
-            </motion.div>
-          </motion.div>
-
-          {/* Mobile Menu Button */}
-          <motion.button
-            className={`md:hidden transition-colors ${
-              currentSection === 'about' || currentSection === 'contact' || currentSection === 'faq' || currentSection === 'reviews'
-                ? 'text-[#0a1628]'
-                : 'text-white'
-            }`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            whileTap={{ scale: 0.9 }}
-            animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </motion.button>
-        </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-        {isMobileMenuOpen && (
-            <motion.div
-              className="md:hidden mt-4 pb-4 flex flex-col gap-4"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {[
-                { id: 'home', label: 'Home', onClick: () => {
-                  if (window.location.hash) {
-                    navigateToHome();
-                  } else {
-                    scrollToSection('home');
-                  }
-                }},
-                { id: 'about', label: 'About', onClick: () => scrollToSection('about') },
-                { id: 'services', label: 'Services', onClick: () => scrollToSection('services') },
-                { id: 'faq', label: 'FAQ', onClick: () => scrollToSection('faq') },
-                { id: 'foundation', label: 'Foundation', onClick: () => scrollToSection('foundation') },
-              ].map((item, index) => (
-                <motion.button
-                  key={item.id}
-                  onClick={item.onClick}
-                  className={`relative transition-colors text-left px-3 py-1 ${
+                    } else {
+                      scrollToSection(item.id);
+                    }
+                  }}
+                  className={`relative transition-colors px-3 py-1 ${
                     currentSection === 'about' || currentSection === 'contact' || currentSection === 'faq' || currentSection === 'reviews'
-                      ? currentSection === item.id
+                      ? isActive
                         ? 'text-[#d4af37] font-semibold'
                         : 'text-[#0a1628] hover:text-[#d4af37]'
-                      : currentSection === item.id
+                      : isActive
                       ? 'text-[#d4af37] font-semibold'
                       : 'text-white hover:text-[#d4af37]'
                   }`}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05, duration: 0.3 }}
-                  whileHover={{ x: 5 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {item.label}
-                  {currentSection === item.id && (
+                  {isActive && (
                     <motion.div
                       className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#d4af37]"
-                      layoutId="mobileActiveIndicator"
+                      layoutId="activeIndicator"
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: 1 }}
                       transition={{ duration: 0.3 }}
                     />
                   )}
                 </motion.button>
-              ))}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.25, duration: 0.3 }}
-              >
-            <Button
-              onClick={() => scrollToSection('contact')}
-                  className="bg-[#d4af37] text-[#0a1628] hover:bg-[#D3AF37]"
-                  asChild
-                >
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-            >
-              Book Consultation
-                  </motion.button>
-            </Button>
               </motion.div>
-            </motion.div>
-        )}
-        </AnimatePresence>
+            );
+          })}
+          <motion.div variants={itemVariants}>
+          <Button
+            onClick={() => scrollToSection('contact')}
+              className="bg-[#d4af37] text-[#0a1628] hover:bg-[#D3AF37]"
+              asChild
+            >
+              <motion.button
+                whileHover={{ scale: 1.05, boxShadow: '0 4px 12px rgba(212, 175, 55, 0.4)' }}
+                whileTap={{ scale: 0.95 }}
+          >
+            Book Consultation
+              </motion.button>
+          </Button>
+          </motion.div>
+        </motion.div>
+        </div>
+
       </div>
     </motion.nav>
   );

@@ -55,9 +55,11 @@ export default function App() {
   // Default home page
   return (
     <div className="min-h-screen">
-      <Navigation />
-      <main>
+      <div className="relative">
+        <Navigation />
         <Hero />
+      </div>
+      <main>
         <About />
         <Services />
         {/* <Gallery /> */}

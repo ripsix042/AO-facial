@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Star, Quote } from 'lucide-react';
+import { useIsMobile } from './ui/use-mobile';
 
 const testimonials = [
   {
@@ -75,7 +76,39 @@ const duplicatedTestimonials = [...testimonials, ...testimonials];
 
 export function Testimonials() {
   const ref = useRef(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isMobile = useIsMobile();
+  const controls = useAnimation();
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragX, setDragX] = useState(0);
+  
+  // Faster speed on mobile (10s) vs desktop (40s)
+  const animationDuration = isMobile ? 10 : 40;
+  
+  // Calculate total width for drag constraints
+  const cardWidth = isMobile ? 280 : 450;
+  const gap = isMobile ? 16 : 24;
+  const singleSetWidth = testimonials.length * (cardWidth + gap);
+
+  // Prevent overscroll/white line on mobile
+  useEffect(() => {
+    if (isMobile && carouselRef.current) {
+      const handleTouchMove = (e: TouchEvent) => {
+        // Only prevent if we're dragging horizontally
+        if (isDragging) {
+          e.preventDefault();
+        }
+      };
+
+      const element = carouselRef.current;
+      element.addEventListener('touchmove', handleTouchMove, { passive: false });
+      
+      return () => {
+        element.removeEventListener('touchmove', handleTouchMove);
+      };
+    }
+  }, [isMobile, isDragging]);
 
   return (
     <section id="reviews" className="py-20 bg-black overflow-hidden">
@@ -125,55 +158,103 @@ export function Testimonials() {
         </motion.div>
 
         {/* Marquee Carousel */}
-        <div ref={ref} className="relative">
+        <div ref={ref} className="relative" style={{ overscrollBehavior: 'none' }}>
           {/* Gradient overlays for fade effect */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
 
           {/* Carousel Container */}
-          <div className="overflow-hidden">
+          <div className="overflow-hidden overscroll-x-none" ref={carouselRef} style={{ touchAction: 'pan-y pinch-zoom' }}>
             <motion.div
-              className="flex gap-6"
-              animate={{
+              ref={carouselRef}
+              className="flex gap-4 md:gap-6"
+              style={{ touchAction: isMobile ? 'pan-x' : 'auto' }}
+              animate={isMobile && isDragging ? { x: dragX } : {
                 x: ['0%', '-50%'], // Move exactly half the width for seamless loop
               }}
-              transition={{
+              transition={isMobile && isDragging ? { type: 'spring', damping: 25, stiffness: 200 } : {
                 x: {
                   repeat: Infinity,
                   repeatType: 'loop',
-                  duration: 40,
+                  duration: animationDuration,
                   ease: 'linear',
                 },
+              }}
+              drag={isMobile ? 'x' : false}
+              dragConstraints={{ left: -singleSetWidth, right: 0 }}
+              dragElastic={0}
+              dragMomentum={false}
+              onDrag={(_, info) => {
+                if (isMobile) {
+                  setDragX(info.offset.x);
+                }
+              }}
+              onDragStart={(event) => {
+                if (isMobile) {
+                  setIsDragging(true);
+                  controls.stop();
+                  // Prevent default browser behaviors
+                  if (event && 'preventDefault' in event) {
+                    event.preventDefault();
+                  }
+                }
+              }}
+              onDragEnd={(_, info) => {
+                if (isMobile) {
+                  // Add momentum-based scrolling
+                  const velocity = info.velocity.x;
+                  let newX = info.offset.x + velocity * 0.15;
+                  
+                  // Constrain to bounds
+                  newX = Math.max(-singleSetWidth, Math.min(0, newX));
+                  
+                  setDragX(newX);
+                  
+                  // Resume auto-scroll after a delay
+                  setTimeout(() => {
+                    setIsDragging(false);
+                    setDragX(0);
+                  }, 3000);
+                }
               }}
             >
               {duplicatedTestimonials.map((testimonial, index) => (
                 <motion.div
                   key={`${testimonial.id}-${index}`}
-                  className="flex-shrink-0 w-[400px] md:w-[450px] bg-gray-900 p-6 rounded-lg shadow-xl relative"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                  whileHover={{ scale: 1.03, y: -5 }}
+                  className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[450px] bg-gray-900 p-4 md:p-6 rounded-lg shadow-xl relative"
+                  initial={{ opacity: 0, y: 50, rotateY: -15 }}
+                  animate={isInView ? { opacity: 1, y: 0, rotateY: 0 } : {}}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: index * 0.05,
+                    ease: [0.25, 0.46, 0.45, 0.94]
+                  }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -10,
+                    rotateY: 5,
+                    transition: { duration: 0.3 }
+                  }}
                 >
                   {/* Quote Icon */}
-                  <Quote className="w-8 h-8 text-[#d4af37] mb-4 opacity-50" />
+                  <Quote className="w-6 h-6 md:w-8 md:h-8 text-[#d4af37] mb-3 md:mb-4 opacity-50" />
                   
                   {/* Rating */}
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-3 md:mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-[#d4af37] text-[#d4af37]" />
+                      <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-[#d4af37] text-[#d4af37]" />
                     ))}
                   </div>
 
                   {/* Review Text */}
-                  <p className="text-white mb-6 leading-relaxed italic text-sm md:text-base">
+                  <p className="text-white mb-4 md:mb-6 leading-relaxed italic text-xs sm:text-sm md:text-base">
                     "{testimonial.text}"
                   </p>
 
                   {/* Patient Info */}
-                  <div className="border-t border-gray-700 pt-4">
-                    <p className="text-white font-semibold">{testimonial.name}</p>
-                    <p className="text-[#d4af37] text-sm">{testimonial.procedure}</p>
+                  <div className="border-t border-gray-700 pt-3 md:pt-4">
+                    <p className="text-white font-semibold text-sm md:text-base">{testimonial.name}</p>
+                    <p className="text-[#d4af37] text-xs md:text-sm">{testimonial.procedure}</p>
                     <p className="text-gray-400 text-xs mt-1">{testimonial.date}</p>
                   </div>
                 </motion.div>

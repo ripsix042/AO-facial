@@ -63,18 +63,39 @@ export function Services() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { 
+      opacity: 0, 
+      y: 50,
+      rotateY: -15,
+      scale: 0.9,
+    },
     visible: {
       opacity: 1,
       y: 0,
+      rotateY: 0,
+      scale: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  };
+
+  const cardVariants = {
+    rest: { scale: 1, y: 0, rotateY: 0 },
+    hover: {
+      scale: 1.05,
+      y: -10,
+      rotateY: 5,
+      transition: {
+        duration: 0.3,
         ease: 'easeOut',
       },
     },
@@ -141,16 +162,17 @@ export function Services() {
               key={index}
               variants={itemVariants}
               className="group bg-[#1a2942] rounded-lg overflow-hidden shadow-lg"
-              whileHover={{ scale: 1.05, y: -10 }}
-              transition={{ duration: 0.3 }}
+              initial="rest"
+              whileHover="hover"
+              variants={cardVariants}
             >
               <div className="relative h-64 overflow-hidden">
                 <motion.img
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] to-transparent opacity-60"></div>
                 <motion.div

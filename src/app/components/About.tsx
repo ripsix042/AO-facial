@@ -78,6 +78,45 @@ export function About() {
     },
   ];
 
+  const scrollVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 100,
+      scale: 0.9,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: 'easeOut',
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const highlightCardVariants = {
+    hidden: { opacity: 0, y: 30, rotateY: -15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotateY: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+      },
+    },
+    hover: {
+      y: -5,
+      scale: 1.02,
+      rotateY: 5,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
+
   return (
     <section id="about" className="py-20 bg-black">
       <div className="container mx-auto px-4">
@@ -119,7 +158,7 @@ export function About() {
         <div ref={ref} className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}
           <motion.div
-            className="relative -mt-129"
+            className="relative mt-10 md:-mt-129"
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -134,7 +173,7 @@ export function About() {
                 alt="Dr. Ade Obayemi Jr"
                 className="w-full h-[600px] object-cover"
               />
-              <div className="absolute -top-[5px] -left-1 right-0 bottom-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent"></div>
+              <div className="absolute right-0 bottom-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent" style={{ borderWidth: '1px', borderColor: 'rgb(0, 0, 0)' }}></div>
             </motion.div>
             {/* Credentials Badge */}
             <motion.div
@@ -158,7 +197,7 @@ export function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <motion.h3
-              className="text-3xl text-white mb-6"
+              className="text-3xl text-white mb-6 text-center md:text-left"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -191,32 +230,17 @@ export function About() {
             {/* Highlights */}
             <motion.div
               className="grid sm:grid-cols-2 gap-6 mt-8"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: 0.1,
-                  },
-                },
-              }}
+              variants={scrollVariants}
               initial="hidden"
-              animate={isInView ? 'visible' : 'hidden'}
+              whileInView="visible"
+              viewport={{ once: true, margin: '-50px' }}
             >
               {highlights.map((highlight, index) => (
                 <motion.div
                   key={index}
                   className="flex items-start gap-3"
-                  variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      transition: { duration: 0.5 },
-                    },
-                  }}
-                  whileHover={{ x: 5, scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
+                  variants={highlightCardVariants}
+                  whileHover="hover"
                 >
                   <motion.div
                     className="w-12 h-12 bg-[#d4af37]/10 rounded-full flex items-center justify-center flex-shrink-0"
