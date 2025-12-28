@@ -45,15 +45,9 @@ export function Contact() {
 
   const contactInfo = [
     {
-      icon: Phone,
-      title: 'Phone',
-      main: '(555) 123-4567',
-      sub: 'Call us for immediate assistance',
-    },
-    {
       icon: Mail,
       title: 'Email',
-      main: 'info@aofacialplastics.com',
+      main: 'inquiries@aofacialplastics.com',
       sub: "We'll respond within 24 hours",
     },
     {

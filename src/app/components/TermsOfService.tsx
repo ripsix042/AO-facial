@@ -1,13 +1,43 @@
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowLeft } from 'lucide-react';
 import { Navigation } from './Navigation';
 import { Footer } from './Footer';
 
 export function TermsOfService() {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  const navigateToHome = () => {
+    window.location.hash = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen">
       <Navigation />
-      <main className="pt-20 pb-16 bg-[#1a2942]">
+      {/* Mobile Back Button - only visible on mobile */}
+      <div className="md:hidden sticky top-0 left-0 right-0 z-40 bg-[#d4af37] border-b border-gray-800 py-3">
+        <div className="container mx-auto px-4">
+          <motion.button
+            onClick={navigateToHome}
+            className="flex items-center gap-2 text-[#0a1628] hover:text-[#0a1628] transition-colors"
+            whileHover={{ x: -5 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ArrowLeft size={20} />
+            <span className="text-sm font-medium">Back to Home</span>
+          </motion.button>
+        </div>
+      </div>
+      <main className="pt-5 pb-5 bg-[#1a2942] md:pt-10">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="mb-12">
+          <div className="mb-12 md:pt-30">
             <h1 className="text-4xl md:text-5xl text-white mb-4">Terms of Service</h1>
             <div className="w-24 h-1 bg-[#d4af37] mb-6"></div>
             <p className="text-white text-sm">

@@ -144,7 +144,7 @@ export function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Meet Ade Obayemi Jr MD MBA
+            Meet Ade Obayemi Jr. MD MBA
           </motion.h2>
           <motion.div
             className="w-24 h-1 bg-[#d4af37] mx-auto"
@@ -170,7 +170,7 @@ export function About() {
             >
               <img
                 src={drObayemiImage}
-                alt="Dr. Ade Obayemi Jr"
+                alt="Dr. Ade Obayemi Jr."
                 className="w-full h-[600px] object-cover"
               />
               <div className="absolute right-0 bottom-0 bg-gradient-to-t from-[#0a1628]/50 to-transparent" style={{ borderWidth: '1px', borderColor: 'rgb(0, 0, 0)' }}></div>
@@ -210,7 +210,7 @@ export function About() {
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Dr. Ade Obayemi Jr, MD MBA, is a dual board-certified facial plastic and
+              Dr. Ade Obayemi Jr., MD MBA, is a dual board-certified facial plastic and
               reconstructive surgeon with a unique understanding of both the structure and
               function of the face. His journey combines surgical precision with artistic
               vision to deliver exceptional, natural-looking results.

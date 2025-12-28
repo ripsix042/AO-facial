@@ -212,12 +212,12 @@ export function Hero() {
             </motion.span>
           </motion.div>
           <motion.h1
-            className="text-[73px] md:text-[200px] text-white mb-10 leading-tight text-center md:text-center"
+            className="text-[73px] md:text-[120px] text-white mb-10 leading-tight text-center md:text-center"
             variants={itemVariants}
           >
             <LetterAnimation delay={0.3}>The Facial</LetterAnimation>
             <motion.span
-              className="block text-[#d4af37] text-[68px] leading-[90px] md:text-[180px] md:leading-[180px]"
+              className="block text-[#d4af37] text-[68px] leading-[90px] md:text-[100px] md:leading-[180px]"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 1.2 }}

@@ -1,58 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Eye, ScanFace, Heart, Sparkles, User, Users } from 'lucide-react';
-import noseImage from '../../assets/nose2.jpeg';
-import eyeImage from '../../assets/eye1.jpg';
-import faceImage from '../../assets/face1.jpg';
-import genderImage from '../../assets/gender1.webp';
-import surgeryImage from '../../assets/surgery1.jpg';
-import nonSurgicalImage from '../../assets/non1.jpg';
-
-const services = [
-  {
-    icon: ScanFace,
-    title: ' Rhinoplasty',
-    description:
-      'Surgical reshaping of the nose to enhance facial harmony and improve breathing function.',
-    image: noseImage,
-  },
-  {
-    icon: Eye,
-    title: 'Eyelid Surgery',
-    description:
-      'Blepharoplasty to rejuvenate the eyes by removing excess skin and restoring a youthful appearance.',
-    image: eyeImage,
-  },
-  {
-    icon: Sparkles,
-    title: 'Facial Rejuvenation',
-    description:
-      'Comprehensive facelift and neck lift procedures for natural, long-lasting anti-aging results.',
-    image: faceImage,
-  },
-  {
-    icon: Users,
-    title: 'Gender Affirmation',
-    description:
-      'Specialized facial feminization and masculinization procedures to align appearance with identity.',
-    image: genderImage,
-  },
-  {
-    icon: Heart,
-    title: 'Reconstructive Surgery',
-    description:
-      'Advanced techniques for skin cancer reconstruction, trauma repair, and congenital corrections.',
-    image: surgeryImage,
-  },
-  {
-    icon: User,
-    title: 'Non-Surgical Treatments',
-    description:
-      'Concierge aesthetic services including injectables, skin treatments, and preventative care.',
-    image: nonSurgicalImage,
-  },
-];
+import { services } from '../data/services';
 
 export function Services() {
   const ref = useRef(null);
@@ -99,6 +48,10 @@ export function Services() {
         ease: 'easeOut',
       },
     },
+  };
+
+  const handleServiceClick = (serviceId: string) => {
+    window.location.hash = serviceId;
   };
 
   return (
@@ -161,10 +114,11 @@ export function Services() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group bg-[#1a2942] rounded-lg overflow-hidden shadow-lg"
+              className="group bg-[#1a2942] rounded-lg overflow-hidden shadow-lg cursor-pointer"
               initial="rest"
               whileHover="hover"
               variants={cardVariants}
+              onClick={() => handleServiceClick(service.id)}
             >
               <div className="relative h-64 overflow-hidden">
                 <motion.img
