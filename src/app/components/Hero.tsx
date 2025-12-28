@@ -164,7 +164,7 @@ export function Hero() {
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex items-center justify-between md:hidden -mt-8 md:mt-0">
+        <div className="flex items-center justify-between md:hidden">
           <motion.button
             onClick={navigateToHome}
             className="flex items-center gap-2 ml-0"
@@ -212,12 +212,12 @@ export function Hero() {
             </motion.span>
           </motion.div>
           <motion.h1
-            className="text-[80px] md:text-[200px] text-white mb-10 leading-tight text-center md:text-center"
+            className="text-[76px] md:text-[200px] text-white mb-10 leading-tight text-center md:text-center"
             variants={itemVariants}
           >
             <LetterAnimation delay={0.3}>The Facial</LetterAnimation>
             <motion.span
-              className="block text-[#d4af37] text-[70px] leading-[90px] md:text-[180px] md:leading-[180px]"
+              className="block text-[#d4af37] text-[68px] leading-[90px] md:text-[180px] md:leading-[180px]"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 1.2 }}
@@ -236,7 +236,7 @@ export function Hero() {
             </WordAnimation>
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 md:justify-center md:pt-4 mt-8 md:mt-0"
+            className="flex flex-col sm:flex-row gap-4 md:justify-center md:pt-4"
             variants={itemVariants}
           >
             <Button
