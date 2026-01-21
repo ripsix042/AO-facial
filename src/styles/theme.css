@@ -132,11 +132,13 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "GFS Didot", serif;
+    font-family: "Noto Serif", serif;
+    font-style: italic;
   }
 
   html {
-    font-family: "GFS Didot", serif;
+    font-family: "Noto Serif", serif;
+    font-style: italic;
   }
 
   /**

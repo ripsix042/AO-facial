@@ -7,22 +7,22 @@ const faqs = [
   {
     question: 'What is facial plastic surgery?',
     answer:
-      'Facial plastic surgery is a specialized field focused on cosmetic and reconstructive procedures of the face, head, and neck. It includes procedures like rhinoplasty, facelifts, eyelid surgery, and reconstructive surgery for trauma or cancer patients.',
+      'Facial plastic and reconstructive surgery is a specialized field focused on cosmetic and reconstructive procedures of the face, head, and neck. It includes procedures such as rhinoplasty, facelift, blepharoplasty, congenital facial/cleft surgery, and all reconstructive surgery. Because of the complex anatomy involved, facial plastic and reconstructive surgeons have an in-depth knowledge of both the aesthetic and functional elements of the entire head and neck.',
   },
   {
     question: 'How do I know if I\'m a good candidate for facial plastic surgery?',
     answer:
-      'The best way to determine if you\'re a good candidate is through a consultation with Dr. Obayemi. During this consultation, we\'ll discuss your goals, medical history, and evaluate your facial structure to determine the best approach for your needs.',
+      'The best way to determine if you\'re a good candidate is through a preliminary consultation with Dr. Obayemi. During this consultation, we\'ll discuss your goals, medical history, and evaluate the relevant facial aesthetics to determine the best approach for your needs.',
   },
   {
     question: 'What is the recovery time for facial procedures?',
     answer:
-      'Recovery time varies depending on the procedure. Minor procedures may require just a few days, while more extensive surgeries may take several weeks. Dr. Obayemi will provide detailed recovery instructions and timelines during your consultation.',
+      'Recovery time varies depending on the procedure. Minor procedures may require just a few days, while more extensive surgeries may take several weeks. Dr. Obayemi will provide detailed recovery instructions and timelines during your consultation. Because of his vast surgical experience in both facial aesthetics and reconstruction, he is able to personalize your treatment plan to fit our exact needs.',
   },
   {
     question: 'Are consultations free?',
     answer:
-      'Yes! We offer complimentary consultations for both in-person and virtual visits. This allows you to meet Dr. Obayemi, discuss your goals, and learn about your treatment options without any obligation.',
+      'There is typically a small consultation fee for a preliminary visit with Dr. Obayemi which will be added to your payment for any procedures booked! However we occasionally offer complimentary consultations during peak seasons for both in-person and virtual visits. This allows you to meet Dr. Obayemi, discuss your goals, and learn about your treatment options without any obligation.',
   },
   {
     question: 'Do you accept insurance?',
@@ -37,7 +37,7 @@ const faqs = [
   {
     question: 'What makes Dr. Obayemi different from other facial plastic surgeons?',
     answer:
-      'Dr. Obayemi is dual board-certified in facial plastic and reconstructive surgery and head & neck surgery, providing a unique combination of expertise. His artistic vision, combined with surgical precision and commitment to patient safety, ensures natural-looking, beautiful results.',
+      'Dr. Obayemi is a dual board-certified facial plastic and reconstructive surgeon and head & neck surgeon, providing a unique combination of expertise. He has extensive experience working with a vast range of patient populations with a variety of needs from traumatic injuries to subtle cosmetic  procedures to more extensive rejuvenation.  His artistic vision, combined with surgical precision and commitment to patient safety, ensures natural-looking, beautiful results.',
   },
   {
     question: 'Can I see before and after photos?',
@@ -51,11 +51,11 @@ interface FAQItemProps {
   answer: string;
   index: number;
   isInView: boolean;
+  isOpen: boolean;
+  onToggle: () => void;
 }
 
-function FAQItem({ question, answer, index, isInView }: FAQItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
+function FAQItem({ question, answer, index, isInView, isOpen, onToggle }: FAQItemProps) {
   return (
     <motion.div
       className="border-b border-gray-700 last:border-b-0"
@@ -65,7 +65,7 @@ function FAQItem({ question, answer, index, isInView }: FAQItemProps) {
     >
       <button
         className="w-full py-6 text-left flex items-center justify-between gap-4 hover:text-[#d4af37] transition-colors"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
       >
         <h3 className="text-lg font-semibold text-white pr-8">{question}</h3>
         <motion.div
@@ -94,6 +94,12 @@ function FAQItem({ question, answer, index, isInView }: FAQItemProps) {
 export function FAQ() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleToggle = (index: number) => {
+    // If clicking the same item, close it. Otherwise, open the clicked item (which closes the previous one)
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
     <section id="faq" className="py-20 bg-[#0a1628]">
@@ -153,6 +159,8 @@ export function FAQ() {
                 answer={faq.answer}
                 index={index}
                 isInView={isInView}
+                isOpen={openIndex === index}
+                onToggle={() => handleToggle(index)}
               />
             ))}
           </div>

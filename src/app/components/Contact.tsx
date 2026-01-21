@@ -107,7 +107,7 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Take the first step towards your transformation. Free consultations available both
+            Take the first step towards your transformation. Consultations available both
             in-person and virtually.
           </motion.p>
         </motion.div>
@@ -351,7 +351,7 @@ export function Contact() {
               transition={{ duration: 0.5, delay: 0.6 }}
               whileHover={{ scale: 1.02, boxShadow: '0 8px 20px rgba(212, 175, 55, 0.2)' }}
             >
-              <h4 className="text-xl text-white mb-3">Free Consultation Offer</h4>
+              <h4 className="text-xl text-white mb-3">Consultation Offer</h4>
               <p className="text-white mb-4">
                 Schedule your complimentary consultation today and take the first step towards
                 achieving your aesthetic goals. Virtual and in-person options available.

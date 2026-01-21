@@ -9,7 +9,7 @@ export function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       // Determine which section is currently in view
-      const sections = ['home', 'about', 'services', 'reviews', 'faq', 'foundation', 'contact'];
+      const sections = ['home', 'about', 'gallery', 'reviews', 'faq', 'foundation', 'contact'];
       const sectionElements = sections.map(id => document.getElementById(id));
       
       const scrollPosition = window.scrollY + 100; // Offset for navigation height
@@ -55,7 +55,7 @@ export function Navigation() {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
-    { id: 'services', label: 'Services' },
+    { id: 'gallery', label: 'Gallery' },
     { id: 'reviews', label: 'Reviews' },
     { id: 'faq', label: 'FAQ' },
     { id: 'foundation', label: 'Foundation' },
@@ -97,11 +97,11 @@ export function Navigation() {
       className="absolute top-0 left-0 right-0 z-50 bg-transparent"
     >
       <div className="container mx-auto px-4 py-4">
-        <div className="hidden md:flex items-center justify-between">
-          {/* Desktop Logo */}
+        <div className="hidden md:flex items-center justify-center relative">
+          {/* Desktop Logo - Positioned on the left */}
           <motion.button
             onClick={navigateToHome}
-            className="flex items-center gap-2 -ml-20"
+            className="absolute left-0 flex items-center gap-2"
             whileHover="hover"
             variants={logoVariants}
           >
@@ -118,7 +118,7 @@ export function Navigation() {
             </motion.div>
           </motion.button>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Centered */}
           <motion.div
             className="flex items-center gap-8"
             variants={containerVariants}
@@ -167,23 +167,27 @@ export function Navigation() {
               </motion.div>
             );
           })}
-          <motion.div variants={itemVariants}>
-          <Button
-            onClick={() => scrollToSection('contact')}
+          </motion.div>
+
+          {/* Book Consultation Button - Positioned on the right */}
+          <motion.div 
+            variants={itemVariants}
+            className="absolute right-0"
+          >
+            <Button
+              onClick={() => scrollToSection('contact')}
               className="bg-[#d4af37] text-[#0a1628] hover:bg-[#D3AF37]"
               asChild
             >
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: '0 4px 12px rgba(212, 175, 55, 0.4)' }}
                 whileTap={{ scale: 0.95 }}
-          >
-            Book Consultation
+              >
+                Book Consultation
               </motion.button>
-          </Button>
+            </Button>
           </motion.div>
-        </motion.div>
         </div>
-
       </div>
     </motion.nav>
   );

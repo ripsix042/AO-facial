@@ -40,34 +40,31 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
   return (
     <div className="min-h-screen">
       <Navigation />
-      {/* Mobile Back Button - only visible on mobile */}
-      <div className="md:hidden sticky top-0 left-0 right-0 z-40 bg-[#d4af37] border-b border-gray-800 py-3">
-        <div className="container mx-auto px-4">
-          <motion.button
-            onClick={navigateToServices}
-            className="flex items-center gap-2 text-[#0a1628] hover:text-[#0a1628] transition-colors"
-            whileHover={{ x: -5 }}
-            whileTap={{ scale: 0.95 }}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <ArrowLeft size={20} />
-            <span className="text-sm font-medium">Back to Services</span>
-          </motion.button>
-        </div>
-      </div>
       <main className="pt-5 pb-5 bg-[#1a2942] md:pt-10">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="mb-12 md:pt-30">
-            <motion.h1
-              className="text-4xl md:text-5xl text-white mb-4"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              {service.title}
-            </motion.h1>
+            <div className="flex items-center gap-4 mb-4">
+              <motion.button
+                onClick={navigateToServices}
+                className="w-12 h-12 bg-[#d4af37] rounded-full flex items-center justify-center hover:bg-[#c09a2a] transition-colors shadow-lg"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                aria-label="Back to Services"
+              >
+                <ArrowLeft className="w-6 h-6 text-[#0a1628]" />
+              </motion.button>
+              <motion.h1
+                className="text-4xl md:text-5xl text-white"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                {service.title}
+              </motion.h1>
+            </div>
             <motion.div
               className="w-24 h-1 bg-[#d4af37] mb-6"
               initial={{ width: 0 }}

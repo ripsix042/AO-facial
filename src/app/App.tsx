@@ -3,8 +3,7 @@ import { Toaster } from './components/ui/sonner';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { Services } from './components/Services';
-// import { Gallery } from './components/Gallery';
+import { Gallery } from './components/Gallery';
 import { Foundation } from './components/Foundation';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -16,6 +15,8 @@ import { BackToTop } from './components/BackToTop';
 import { FAQ } from './components/FAQ';
 import { Testimonials } from './components/Testimonials';
 import { services } from './data/services';
+import { galleryItems } from './data/gallery';
+import { GalleryDetail } from './components/GalleryDetail';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -25,6 +26,13 @@ export default function App() {
     // Check URL hash on mount and when hash changes
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1); // Remove the # symbol
+      
+      // Check if it's a gallery page
+      const galleryItem = galleryItems.find(item => `gallery-${item.id}` === hash);
+      if (galleryItem) {
+        setCurrentPage(`gallery-${galleryItem.id}`);
+        return;
+      }
       
       // Check if it's a service page
       const service = services.find(s => s.id === hash);
@@ -53,6 +61,13 @@ export default function App() {
     return <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />;
   }
 
+  // Render gallery pages
+  const galleryId = currentPage.replace('gallery-', '');
+  const galleryItem = galleryItems.find(item => item.id === galleryId);
+  if (galleryItem) {
+    return <GalleryDetail item={galleryItem} />;
+  }
+
   // Render service pages
   const serviceId = currentPage.replace('service-', '');
   const service = services.find(s => s.id === serviceId);
@@ -71,15 +86,14 @@ export default function App() {
 
   // Default home page
   return (
-    <div className="min-h-screen">
-      <div className="relative">
+    <div className="min-h-screen w-full overflow-x-hidden">
+      <div className="relative w-full">
         <Navigation />
         <Hero />
       </div>
       <main>
         <About />
-        <Services />
-        {/* <Gallery /> */}
+        <Gallery />
         <Testimonials />
         <FAQ />
         <Foundation />

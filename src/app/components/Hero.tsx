@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/button';
-import heroImage from '@/assets/Facial-Treatments-in-Dubai.webp';
+import heroImage from '@/assets/Facial-Treatments-in-Dubai1.webp';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import logo from '@/assets/logo.png';
@@ -144,11 +144,11 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-start md:items-center justify-center overflow-hidden pt-4 md:pt-0 w-full max-w-full"
     >
       {/* Background Image */}
       <motion.div
-        className="absolute inset-0"
+        className="absolute inset-0 w-full h-full"
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.5, ease: 'easeOut' }}
@@ -163,8 +163,8 @@ export function Hero() {
       </motion.div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex items-center justify-between md:hidden">
+      <div className="container mx-auto px-4 relative z-10 w-full max-w-full pt-2 md:pt-0">
+        <div className="flex items-center justify-between md:hidden mb-2">
           <motion.button
             onClick={navigateToHome}
             className="flex items-center gap-2 ml-0"
@@ -196,41 +196,41 @@ export function Hero() {
           </motion.button>
         </div>
         <motion.div
-          className="max-w-5xl mx-auto md:text-center"
+          className="max-w-5xl mx-auto md:text-center mt-4 md:mt-0"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.div className="mb-6, mt-20" variants={itemVariants}>
+          {/* <motion.div className="mb-6, mt-20" variants={itemVariants}>
             <motion.span
-              className="text-[#d4af37] text-[20px] md:text-[30px] tracking-wider uppercase inline-block text-center md:text-left"
+              className="text-[#d4af37] text-[20px] md:text-[60px] font-bold tracking-wider uppercase inline-block text-center md:text-left"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Welcome to AO Facial Plastics
+              Welcome to
             </motion.span>
-          </motion.div>
+          </motion.div> */}
           <motion.h1
-            className="text-[73px] md:text-[120px] text-white mb-10 leading-tight text-center md:text-center"
+            className="text-[38px] md:text-[110px] font-bold text-white mb-10 leading-tight text-center md:text-center mt-29 md:mt-0"
             variants={itemVariants}
           >
-            <LetterAnimation delay={0.3}>The Facial</LetterAnimation>
+            <LetterAnimation delay={0.3}>AO Facial Plastics</LetterAnimation>
             <motion.span
-              className="block text-[#d4af37] text-[68px] leading-[90px] md:text-[100px] md:leading-[180px]"
+              className="block text-[#d4af37] text-[28px] leading-[100px] md:text-[50px] md:leading-[150px] mt-10 md:mt-0"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 1.2 }}
             >
-              <LetterAnimation delay={1.2}>Architect</LetterAnimation>
+              <LetterAnimation delay={1.2}>The Facial Architect</LetterAnimation>
             </motion.span>
           </motion.h1>
           <motion.p
-            className="text-[20px] text-gray-300 mb-8 leading-relaxed text-center md:text-center"
+            className="text-[18px] text-gray-300 mb-8 font-bold leading-relaxed text-center md:text-center mt-30 md:mt-0"
             variants={itemVariants}
           >
             <WordAnimation delay={0.8}>
-              Dual board-certified head and neck and facial plastic surgeon dedicated to
+              Dual board-certified head, neck and facial plastic surgeon dedicated to
               enhancing natural beauty through advanced surgical techniques and personalized
               care.
             </WordAnimation>
@@ -242,7 +242,7 @@ export function Hero() {
             <Button
               size="lg"
               onClick={() => scrollToSection('contact')}
-              className="bg-[#d4af37] text-[#0a1628] hover:bg-[#D3AF37] px-8"
+              className="bg-[#d4af37] text-[#0a1628] hover:bg-[#D3AF37] px-8 mt-5 md:mt-0"
               asChild
             >
               <motion.button
@@ -322,7 +322,7 @@ export function Hero() {
                       }
                     }},
                     { id: 'about', label: 'About', onClick: () => scrollToSection('about') },
-                    { id: 'services', label: 'Services', onClick: () => scrollToSection('services') },
+                    { id: 'gallery', label: 'Gallery', onClick: () => scrollToSection('gallery') },
                     { id: 'reviews', label: 'Reviews', onClick: () => scrollToSection('reviews') },
                     { id: 'faq', label: 'FAQ', onClick: () => scrollToSection('faq') },
                     { id: 'foundation', label: 'Foundation', onClick: () => scrollToSection('foundation') },
