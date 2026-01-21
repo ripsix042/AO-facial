@@ -226,7 +226,7 @@ export function Hero() {
             </motion.span>
           </motion.h1>
           <motion.p
-            className="text-[18px] text-gray-300 mb-8 font-bold leading-relaxed text-center md:text-center mt-30 md:mt-0"
+            className="text-[18px] text-gray-300 mb-8 font-bold leading-relaxed text-center md:text-center mt-10 md:mt-0"
             variants={itemVariants}
           >
             <WordAnimation delay={0.8}>
