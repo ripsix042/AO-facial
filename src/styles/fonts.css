@@ -1,23 +1,39 @@
-.noto-serif-italic {
-  font-family: "Noto Serif", serif;
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../assets/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+.playfair-display-italic {
+  font-family: "Playfair Display", serif;
   font-weight: 400;
   font-style: italic;
 }
 
-.noto-serif-regular {
-  font-family: "Noto Serif", serif;
+.playfair-display-regular {
+  font-family: "Playfair Display", serif;
   font-weight: 400;
   font-style: normal;
 }
 
-.noto-serif-bold {
-  font-family: "Noto Serif", serif;
+.playfair-display-bold {
+  font-family: "Playfair Display", serif;
   font-weight: 700;
   font-style: normal;
 }
 
-.noto-serif-bold-italic {
-  font-family: "Noto Serif", serif;
+.playfair-display-bold-italic {
+  font-family: "Playfair Display", serif;
   font-weight: 700;
   font-style: italic;
 }

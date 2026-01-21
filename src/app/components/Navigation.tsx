@@ -94,7 +94,7 @@ export function Navigation() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="absolute top-0 left-0 right-0 z-50 bg-transparent"
+      className="absolute top-6 left-0 right-0 z-50 bg-transparent"
     >
       <div className="container mx-auto px-4 py-4">
         <div className="hidden md:flex items-center justify-center relative">
@@ -113,7 +113,7 @@ export function Navigation() {
               <img 
                 src={logo} 
                 alt="AO Facial Plastics" 
-                className="h-16 w-auto"
+                className="h-13 w-auto "
               />
             </motion.div>
           </motion.button>

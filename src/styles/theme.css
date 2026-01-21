@@ -132,12 +132,14 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Noto Serif", serif;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
     font-style: italic;
   }
 
   html {
-    font-family: "Noto Serif", serif;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
     font-style: italic;
   }
 
