@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { GraduationCap, Heart, Globe, Users } from 'lucide-react';
-import { Button } from './ui/button';
 
 // Count-up hook
 function useCountUp(end: number, duration: number, startCounting: boolean) {
