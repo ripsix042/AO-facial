@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/button';
-import heroImage from '@/assets/Facial-Treatments-in-Dubai1.webp';
+import heroImage from '@/assets/5.jpeg';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import logo from '@/assets/logo.png';
@@ -236,13 +236,13 @@ export function Hero() {
             </WordAnimation>
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 md:justify-center md:pt-4"
+            className="flex flex-col sm:flex-row gap-5 md:justify-center md:pt-12"
             variants={itemVariants}
           >
             <Button
               size="lg"
               onClick={() => scrollToSection('contact')}
-              className="bg-[#d4af37] text-[#0a1628] hover:bg-[#D3AF37] px-8 mt-5 md:mt-0"
+              className="bg-[#d4af37] text-[#0a1628] hover:bg-[#D3AF37] px-8 mt-4 md:mt-20"
               asChild
             >
               <motion.button
