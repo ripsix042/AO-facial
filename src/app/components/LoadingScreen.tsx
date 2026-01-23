@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/Elegant.png';
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
@@ -44,7 +44,7 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
               }}
             >
               <motion.div
-                className="bg-white p-4 rounded-lg inline-block"
+                className="p-4 rounded-lg inline-block"
                 animate={{
                   boxShadow: [
                     '0 0 0px rgba(212, 175, 55, 0.4)',
@@ -61,7 +61,7 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
                 <img
                   src={logo}
                   alt="AO Facial Plastics"
-                  className="h-24 w-auto"
+                  className="h-90 w-auto"
                 />
               </motion.div>
             </motion.div>

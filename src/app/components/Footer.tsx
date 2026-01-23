@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/Elegant.png';
 import { galleryItems } from '../data/gallery';
 
 export function Footer() {
@@ -86,7 +86,7 @@ export function Footer() {
           >
             <div className="flex items-center gap-2 mb-4">
               <motion.div
-                className="w-17 h-17 bg-white flex items-center justify-center rounded overflow-hidden"
+                className="w-39 h-39 flex items-center justify-center rounded overflow-hidden"
                 whileHover={{ scale: 1.1, rotate: 5 }}
               >
                 <img src={logo} alt="AO Facial Plastics Logo" className="w-full h-full object-contain" />

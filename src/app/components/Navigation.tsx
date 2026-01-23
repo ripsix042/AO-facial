@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/Elegant.png';
 
 export function Navigation() {
   const [currentSection, setCurrentSection] = useState('home');
@@ -106,14 +106,14 @@ export function Navigation() {
             variants={logoVariants}
           >
             <motion.div
-              className="bg-white p-1 rounded"
+              className="p-1 rounded"
               whileHover={{ boxShadow: '0 4px 12px rgba(212, 175, 55, 0.3)' }}
               transition={{ duration: 0.2 }}
             >
               <img 
                 src={logo} 
                 alt="AO Facial Plastics" 
-                className="h-13 w-auto "
+                className="h-50 w-auto "
               />
             </motion.div>
           </motion.button>

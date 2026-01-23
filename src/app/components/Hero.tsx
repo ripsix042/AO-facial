@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import heroImage from '@/assets/5.jpeg';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/Elegant.png';
 
 // Letter-by-letter animation component
 const LetterAnimation = ({ children, delay = 0 }: { children: string; delay?: number }) => {
@@ -172,7 +172,7 @@ export function Hero() {
             variants={logoVariants}
           >
             <motion.div
-              className="bg-white p-1 rounded"
+              className=" p-1 rounded"
               whileHover={{ boxShadow: '0 4px 12px rgba(212, 175, 55, 0.3)' }}
               transition={{ duration: 0.2 }}
             >
