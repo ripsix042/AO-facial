@@ -61,7 +61,7 @@ export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
                 <img
                   src={logo}
                   alt="AO Facial Plastics"
-                  className="h-90 w-auto"
+                  className="h-50 w-auto"
                 />
               </motion.div>
             </motion.div>

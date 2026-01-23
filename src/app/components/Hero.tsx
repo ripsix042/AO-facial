@@ -179,7 +179,7 @@ export function Hero() {
               <img 
                 src={logo} 
                 alt="AO Facial Plastics" 
-                className="h-16 w-auto"
+                className="h-32 w-auto"
               />
             </motion.div>
           </motion.button>
