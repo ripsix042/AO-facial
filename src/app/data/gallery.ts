@@ -200,7 +200,7 @@ export const galleryItems = [
     description: 'Medical missions providing care to underserved communities worldwide.',
     detailedContent: {
       overview:
-        'Dr. Obayemi is passionate about volunteer work, serving as a medical director for an annual mission trip to Tanzania where he performed reconstructive procedures for cleft lip, cleft palate, and thyroid disease. He also has performed medical mission work in Ghana, Nigeria, and South Africa throughout his career.',
+        'Dr. Obayemi is passionate about volunteer work, serving as a medical director for an annual mission trip to Tanzania where he perform reconstructive procedures for cleft lip, cleft palate, and thyroid disease. He also has performed medical mission work in Ghana, Nigeria, and South Africa throughout his career.',
       benefits: [
         'Providing care to underserved communities',
         'Global health impact',

@@ -230,7 +230,7 @@ export function Hero() {
             variants={itemVariants}
           >
             <WordAnimation delay={0.8}>
-              Dual board-certified head, neck and facial plastic surgeon dedicated to
+              A dual board-certified head, neck and facial plastic surgeon dedicated to
               enhancing natural beauty through advanced surgical techniques and personalized
               care.
             </WordAnimation>
