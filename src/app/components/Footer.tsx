@@ -86,8 +86,12 @@ export function Footer() {
           >
             <div className="flex items-center gap-2 mb-4">
               <motion.div
-                className="w-39 h-39 flex items-center justify-center rounded overflow-hidden"
+                className="w-39 h-39 flex items-center justify-center rounded overflow-hidden cursor-pointer"
                 whileHover={{ scale: 1.1, rotate: 5 }}
+                onClick={() => {
+                  window.location.hash = '';
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 <img src={logo} alt="AO Facial Plastics Logo" className="w-full h-full object-contain" />
               </motion.div>
