@@ -107,7 +107,7 @@ export function Navigation() {
           >
             <motion.div
               className="p-1 rounded"
-              whileHover={{ boxShadow: '0 4px 12px rgba(212, 175, 55, 0.3)' }}
+              // whileHover={{ boxShadow: '0 4px 12px rgba(212, 175, 55, 0.3)' }}
               transition={{ duration: 0.2 }}
             >
               <img 
