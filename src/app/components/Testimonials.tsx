@@ -131,7 +131,7 @@ export function Testimonials() {
             Reviews
           </motion.span>
           <motion.h2
-            className="text-4xl md:text-5xl text-white mt-2 mb-4"
+            className="text-4xl md:text-4xl lg:text-5xl text-white mt-2 mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -221,7 +221,7 @@ export function Testimonials() {
               {duplicatedTestimonials.map((testimonial, index) => (
                 <motion.div
                   key={`${testimonial.id}-${index}`}
-                  className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[450px] bg-gray-900 p-4 md:p-6 rounded-lg shadow-xl relative"
+                  className="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] lg:w-[450px] bg-gray-900 p-4 md:p-5 lg:p-6 rounded-lg shadow-xl relative"
                   initial={{ opacity: 0, y: 50, rotateY: -15 }}
                   animate={isInView ? { opacity: 1, y: 0, rotateY: 0 } : {}}
                   transition={{ 

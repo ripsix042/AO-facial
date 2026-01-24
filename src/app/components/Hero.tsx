@@ -163,7 +163,7 @@ export function Hero() {
       </motion.div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-10 w-full max-w-full pt-2 md:pt-0">
+      <div className="container mx-auto px-4 relative z-10 w-full max-w-full pt-2 md:pt-28">
         <div className="flex items-center justify-between md:hidden mb-2">
           <motion.button
             onClick={navigateToHome}
@@ -179,7 +179,7 @@ export function Hero() {
               <img 
                 src={logo} 
                 alt="AO Facial Plastics" 
-                className="h-25 w-auto"
+                className="h-39 w-auto object-contain"
               />
             </motion.div>
           </motion.button>
@@ -196,28 +196,18 @@ export function Hero() {
           </motion.button>
         </div>
         <motion.div
-          className="max-w-5xl mx-auto md:text-center mt-4 md:mt-0"
+          className="max-w-5xl xl:max-w-6xl mx-auto md:text-center mt-4 md:mt-0"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {/* <motion.div className="mb-6, mt-20" variants={itemVariants}>
-            <motion.span
-              className="text-[#d4af37] text-[20px] md:text-[60px] font-bold tracking-wider uppercase inline-block text-center md:text-left"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Welcome to
-            </motion.span>
-          </motion.div> */}
           <motion.h1
-            className="text-[38px] md:text-[110px] font-bold text-white mb-10 leading-tight text-center md:text-center mt-29 md:mt-0"
+            className="text-[38px] md:text-[80px] lg:text-[110px] font-bold text-white mb-10 leading-tight text-center md:text-center mt-29 md:mt-0"
             variants={itemVariants}
           >
             <LetterAnimation delay={0.3}>AO Facial Plastics</LetterAnimation>
             <motion.span
-              className="block text-[#d4af37] text-[28px] leading-[100px] md:text-[50px] md:leading-[150px] mt-10 md:mt-0"
+              className="block text-[#d4af37] text-[28px] leading-[100px] md:text-[40px] md:leading-[120px] lg:text-[50px] lg:leading-[150px] mt-10 md:mt-0"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 1.2 }}
@@ -236,13 +226,13 @@ export function Hero() {
             </WordAnimation>
           </motion.p>
           <motion.div
-            className="flex flex-col sm:flex-row gap-5 md:justify-center md:pt-12"
+            className="flex flex-col sm:flex-row gap-5 md:justify-center md:pt-8 lg:pt-12"
             variants={itemVariants}
           >
             <Button
               size="lg"
               onClick={() => scrollToSection('contact')}
-              className="bg-[#d4af37] text-[#0a1628] hover:bg-[#D3AF37] px-8 mt-4 md:mt-20"
+              className="bg-[#d4af37] text-[#0a1628] hover:bg-[#D3AF37] px-8 mt-4 md:mt-12 lg:mt-12"
               asChild
             >
               <motion.button
@@ -259,7 +249,7 @@ export function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
+      {/* <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -272,7 +262,7 @@ export function Hero() {
         >
           <div className="w-1 h-3 bg-[#d4af37] rounded-full mt-2"></div>
         </motion.div>
-      </motion.div>
+      </motion.div> */}
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
@@ -306,7 +296,7 @@ export function Hero() {
                     <img 
                       src={logo} 
                       alt="AO Facial Plastics" 
-                      className="h-12 w-auto"
+                      className="h-39 w-auto object-contain"
                     />
                   </div>
                 </motion.button>

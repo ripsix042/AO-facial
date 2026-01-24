@@ -194,3 +194,10 @@
     line-height: 1.5;
   }
 }
+
+/* Cap container on big screens so layout stays laptop-like */
+@layer components {
+  .container {
+    max-width: min(100%, 1536px);
+  }
+}

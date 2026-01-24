@@ -113,14 +113,14 @@ export function Navigation() {
               <img 
                 src={logo} 
                 alt="AO Facial Plastics" 
-                className="h-50 w-auto "
+                className="h-39 w-auto object-contain"
               />
             </motion.div>
           </motion.button>
 
           {/* Desktop Navigation - Centered */}
           <motion.div
-            className="flex items-center gap-8"
+            className="flex items-center md:gap-2 lg:gap-8"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -141,7 +141,7 @@ export function Navigation() {
                       scrollToSection(item.id);
                     }
                   }}
-                  className={`relative transition-colors px-3 py-1 ${
+                  className={`relative transition-colors px-3 md:px-2 lg:px-3 py-1 ${
                     currentSection === 'about' || currentSection === 'contact' || currentSection === 'faq' || currentSection === 'reviews'
                       ? isActive
                         ? 'text-[#d4af37] font-semibold'

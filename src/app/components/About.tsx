@@ -138,7 +138,7 @@ export function About() {
             About
           </motion.span>
           <motion.h2
-            className="text-4xl md:text-5xl text-white mt-2 mb-4"
+            className="text-4xl md:text-4xl lg:text-5xl text-white mt-2 mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

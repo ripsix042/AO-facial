@@ -57,7 +57,7 @@ function StackedCardStack({ item, stackPosition, onClick, isInView }: StackedCar
     <motion.div
       className={`relative cursor-pointer ${
         stackPosition === 'center' 
-          ? 'w-[280px] h-[430px] md:w-[420px] md:h-[560px]' 
+          ? 'w-[280px] h-[430px] md:w-[340px] md:h-[453px] lg:w-[420px] lg:h-[560px]' 
           : 'w-[300px] h-[400px]'
       }`}
       variants={containerVariants}
@@ -236,7 +236,7 @@ export function Gallery() {
             Gallery
           </motion.span>
           <motion.h2
-            className="text-4xl md:text-5xl text-white mt-2 mb-4"
+            className="text-4xl md:text-4xl lg:text-5xl text-white mt-2 mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -268,7 +268,7 @@ export function Gallery() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div
-            className="relative h-[600px] md:h-[650px] flex items-center justify-center overflow-visible"
+            className="relative h-[600px] md:h-[580px] lg:h-[650px] flex items-center justify-center overflow-visible"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
