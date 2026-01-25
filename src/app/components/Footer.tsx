@@ -203,7 +203,7 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-white">
-              © {new Date().getFullYear()} AO Facial Plastics and Reconstructive Surgery, INC.
+              © {new Date().getFullYear()} AO Facial Plastics and Reconstructive Surgery, Inc.
               All rights reserved.
             </p>
             <motion.div
