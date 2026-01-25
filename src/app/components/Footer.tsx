@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
+import { Instagram, Twitter } from 'lucide-react';
 import logo from '../../assets/Elegant.png';
 import { galleryItems } from '../data/gallery';
 
