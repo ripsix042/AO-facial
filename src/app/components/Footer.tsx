@@ -103,7 +103,7 @@ export function Footer() {
             </p>
             <div className="flex gap-4 mt-6">
               {[
-                { icon: Facebook, label: 'Facebook', href: '#' },
+                // { icon: Facebook, label: 'Facebook', href: '#' },
                 { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/ao_facialplastics?igsh=b2E3anlwamI1eGpr' },
                 { icon: Twitter, label: 'Twitter', href: 'https://x.com/ObayemiMd?s=20' },
               ].map((social, index) => (
